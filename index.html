@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Holi</title>
+
+<style>
+    body {
+       margin: 0;
+padding: 30px;                 /* space around page */
+font-family: 'Poppins', sans-serif;
+
+display: flex;
+flex-direction: column;        /* stack items vertically */
+
+justify-content: center;       /* vertical center */
+align-items: center;           /* horizontal center */
+
+min-height: 100vh;
+
+background: linear-gradient(-45deg, #ff4e50, #f9d423, #24c6dc, #ff00cc);
+background-size: 400% 400%;
+animation: gradientBG 8s ease infinite;
+
+overflow: hidden;
+gap: 20px;                     /* space between video and card */
+    }
+
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 0 40px rgba(0,0,0,0.3);
+        width: 90%;
+        max-width: 500px;
+    }
+
+    h1 {
+        font-size:clamp(32px,6vw,60px);
+        margin: 0;
+        text-shadow: 0 0 20px yellow, 0 0 40px orange;
+    }
+
+    p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .btn {
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        background: white;
+        color: #ff4e50;
+        cursor: pointer;
+        transition: 0.4s;
+        box-shadow: 0 0 15px white;
+    }
+
+    .btn:hover {
+        background: #ff4e50;
+        color: white;
+        box-shadow: 0 0 25px #ff4e50;
+    }
+
+    .slider {
+        display: none;
+        margin-top: 20px;
+        min-height: 120px;
+    }
+
+    .slide {
+        display: none;
+        font-size: 18px;
+        animation: fade 0.6s ease-in-out;
+    }
+
+    @keyframes fade {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    .active {
+        display: block;
+    }
+
+    .arrow {
+        cursor: pointer;
+        font-size: 25px;
+        margin: 15px;
+        user-select: none;
+    }
+
+    /* Color splash circles */
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: float 6s infinite ease-in-out;
+    }
+
+    .c1 {width: 150px; height: 150px; background: #ff00cc; top: 10%; left: 10%;}
+    .c2 {width: 200px; height: 200px; background: #24c6dc; bottom: 15%; right: 10%;}
+    .c3 {width: 120px; height: 120px; background: #f9d423; bottom: 10%; left: 20%;}
+
+    @keyframes float {
+        0%,100% {transform: translateY(0);}
+        50% {transform: translateY(-30px);}
+    }
+
+    #holiVideo{
+width:90%;
+max-width:350px;
+border-radius:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<video id="holiVideo" width="320" loop style="display:none;">
+    <source src="holi.mp4" type="video/mp4">
+</video>
+
+<audio id="introMusic" autoplay loop>
+    <source src="introMusic.mp3" type="audio/mpeg">
+</audio>
+<audio id="holiSong" loop>
+    <source src="holiMusic.mp3" type="audio/mpeg">
+</audio>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
+<div class="card">
+    <h1>🌈 Happy Holi 🎨</h1>
+    <p>Click below to enjoy Holi special jokes!</p>
+    <button class="btn" onclick="startHoli(); startSlider();">
+Spread the Colors!
+</button>
+
+    <div class="slider" id="slider">
+
+    <div class="slide active">
+        होली आ रही है कृपया रंग से एतराज करने वालों को रंग न लगाएं,<br>
+        कीचड़ में पटक पटक कर नहलाएं 😆
+    </div>
+
+    <div class="slide">
+        होली पर इतने पुराने कपड़े भी मत पहनना की,<br>
+        कोई रंग लगाने की बजाय रोटी दे कर चला जाये 😂😂
+    </div>
+
+    <div class="slide">
+        जो लोग मेरी बातों से लाल पीले हो जाते हैं,<br>
+        उन्हें होली की अग्रिम बधाई 😜
+    </div>
+
+    <div class="slide">
+        आज तक समझ नहीं आया बलम ने आखिर वो कौन सी पिचकारी मारी थी,<br>
+        जो सीधी सादी छोरी शराबी हो गई 😅
+    </div>
+
+    <div class="slide">
+        निकल पड़ो गलियों में बना कर टोली,<br>
+        भीगा दो आज हर लड़की की चोली,<br>
+        हँस दे अगर वो तो उसे बाहों में भर लो,<br>
+        नहीं तो निकल लो वहाँ से कहकर — हैप्पी होली 😄
+    </div>
+
+    <div class="slide">
+        मुझे किसी तरह के रंगों की जरूरत नहीं,<br>
+        लोग तो मेरी बात सुनकर ही लाल पीले हो जाते हैं 😆
+    </div>
+
+    <div class="slide">
+        भगवान ने तुम्हे ना भेजा होता तो भेजता किसे?<br>
+        लेकिन भेजा तो ऐसा भेजा कि रंग भी शर्माने लगें 😜
+    </div>
+
+    <div class="slide">
+        होली पर इतना रंग मत लगाना दोस्तों,<br>
+        कि आधार कार्ड से पहचान करवानी पड़े 😂
+    </div>
+
+    <div>
+        <span class="arrow" onclick="prevSlide()">⬅</span>
+        <span class="arrow" onclick="nextSlide()">➡</span>
+    </div>
+
+</div>
+
+    </div>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function startSlider(){
+    document.getElementById("slider").style.display = "block";
+}
+
+function showSlide(index){
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+function nextSlide(){
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
+
+function prevSlide(){
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
+
+let introStarted = false;
+
+document.body.addEventListener("click", function(){
+    if(!introStarted){
+        document.getElementById("introMusic").play();
+        introStarted = true;
+    }
+});
+
+function startHoli(){
+
+    const video = document.getElementById("holiVideo");
+    const intro = document.getElementById("introMusic");
+    const holi = document.getElementById("holiSong");
+
+    video.style.display = "block";
+
+    intro.pause();          // stop first song
+    intro.currentTime = 0;  // reset it
+
+    holi.play();            // start second song
+    video.play();           // start video
+
+}
+
+</script>
+
+</body>
+</html>
